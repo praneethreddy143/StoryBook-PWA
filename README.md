@@ -14,7 +14,7 @@ This repository contains a customizable `Button` component built with React and 
 To use the `Button` component in your project, you need to have Node.js and npm installed. Then, you can install the necessary dependencies:
 
 ```bash
-npm install
+npm i position-style-button-component@1.0.1
 ```
 
 ## Usage
