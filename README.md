@@ -68,6 +68,77 @@ const App: React.FC = () => {
 export default App;
 ```
 
-## License
+You can use Storybook to develop and test the Button component in isolation. Follow these steps to set up Storybook:
 
-This project is licensed under the MIT License.
+1. Install Storybook:
+```bash
+npx sb init
+```
+
+2. Create a Story for the Button component:
+Create a file named Button.stories.tsx in the src/Components/Button directory with the following content:
+
+```jsx
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import Button, { ButtonProps } from './Button';
+
+export default {
+    title: 'Components/Button',
+    component: Button,
+} as Meta;
+
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+    label: 'Click Me',
+    position: 'Top',
+};
+
+export const CustomStyle = Template.bind({});
+CustomStyle.args = {
+    label: 'Click Me',
+    style: { backgroundColor: 'blue', color: 'white' },
+    position: 'Bottom',
+};
+```
+you can directly use the StoryObj to bind the meta and declare Templates
+```jsx
+
+const meta = {
+    title: "Test/Button",
+    component: Button,
+    parameters: {
+        layout: "centered",
+    },
+    tags: ["autodocs"],
+    argTypes: {
+        backgroundColor: { control: "color" },
+    },
+    args: { onClick: fn() },
+    } as Meta<typeof Button>;
+
+
+ export default meta;
+type Story = StoryObj<typeof meta>;   
+
+export const Primary: Story = {
+    args: {
+      label: 'Button',
+    },
+  };
+  export const BottomButton: Story = {
+    args: {
+      label: 'Bottom Button',
+      position: "Bottom",
+    },
+  };  
+```
+
+3. Run Storybook:
+```bash
+npm run storybook
+```
+
+This will start the Storybook server and open it in your default web browser. You can now see and interact with the Button component in isolation.
