@@ -25,6 +25,10 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/praneethreddy143/position-style-button-component.git"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
