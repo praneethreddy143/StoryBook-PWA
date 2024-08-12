@@ -1,6 +1,6 @@
 {
   "name": "position-style-button-component",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "sample-component",
   "scripts": {
     "rollup-build-lib": "rollup -c"
